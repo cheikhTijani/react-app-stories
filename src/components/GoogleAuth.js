@@ -53,10 +53,12 @@ class GoogleAuth extends React.Component {
 
     componentDidMount() {
         this.initGoogle();
-        if (sessionStorage.getItem("token")) {
+        if (sessionStorage.getItem("token") !== null) {
             const userObject = JSON.parse(sessionStorage.getItem("token"));
             this.setState({ user: userObject });
             document.getElementById('signIn').hidden = true;
+        } else {
+            this.initGoogle();
         }
     }
 

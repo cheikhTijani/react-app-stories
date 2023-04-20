@@ -17,7 +17,7 @@ const Header = () => {
                     <div className="right menu flex-center">
                         <Link to="/" className="item font" >All Stories</Link>
                         {!loggedIn && (
-                            <Link to="/login" className="ui button" >Login</Link>
+                            <Link to="/login" className="ui button primary Btn" >Login</Link>
                         )}
                         <GoogleAuth />
                     </div>
