@@ -6,4 +6,4 @@ use this credentials to test the app if don't want to login with your google acc
 email: tijani@contact.info
 pass: 12345678
 
-Demo [here](https://stories-dg37600ur-cheikhtijani.vercel.app/)
+Demo [here](https://stories-six-theta.vercel.app/)
