@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* primary : #339AF0
+    dark : #2185d0
+    red : #db2828
+*/
+
+body {
+  font-family: 'Work Sans', sans-serif !important;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.app-child {
+  margin: 50px auto 30px auto;
+  background: #f5f5f5;
+  padding: 30px;
+}
+
+.page-title {
+  text-align: center !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 25px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+}
+
+.page-title-secondary {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+}
+
+input,
+textarea,
+.font {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 16px !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.blue-text {
+  color: #339AF0 !important;
+}
+
+.white-text {
+  color: #f5f5f5 !important;
+}
+
+.blue-bg {
+  background-color: #339AF0 !important;
+}
+
+/* HEADER */
+.logo {
+  width: 35px !important;
+}
+
+.theMenu {
+  min-width: 720px;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.Btn {
+  display: block;
+  font-size: 16px !important;
+  border-radius: 4px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  padding: 12px 14px !important;
+  letter-spacing: .5px !important;
+  font-family: 'Work Sans', sans-serif !important;
+}
+
+/* Story List */
+.shareBtn {
+  margin-top: 30px;
+}
+
+.iconDel {
+  color: #db2828 !important;
+}
+
+.iconDel:hover {
+  color: #cb1515 !important;
+}
+
+.iconEdit {
+  color: #2185d0 !important;
+}
+
+.iconEdit:hover {
+  color: #1569aa !important;
+}
+
+/* Login Form */
+.loginConatainer {
+  max-width: 580px;
+}
+
+.loginField input {
+  margin: 15px 0 !important;
+}
+
+.login-error {
+  color: #cb1515 !important;
+  text-align: center !important;
+}
