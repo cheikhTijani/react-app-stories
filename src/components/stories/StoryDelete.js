@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import Modal from "../Modal";
-import history from "../../history";
 import { fetchStory, deleteStory } from "../../actions";
 import { Link } from "react-router-dom";
+import history from "../../history";
 
 
 class StoryDelete extends React.Component {

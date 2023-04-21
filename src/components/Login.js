@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import history from '../history';
 import { connect } from "react-redux";
 import { signIn } from '../actions';
+import history from '../history';
 
 const credentials = {
     email: process.env.REACT_APP_email,
@@ -13,6 +13,7 @@ const credentials = {
 function Login({ isSignedIn, signIn }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [online, setOnline] = useState(false);
 
     const errorRef = useRef(null);
 
@@ -34,7 +35,7 @@ function Login({ isSignedIn, signIn }) {
             errorRef.current.textContent = ''
             sessionStorage.setItem("token", JSON.stringify(credentials));
             signIn(JSON.parse(sessionStorage.getItem("token")));
-            window.location.reload();
+            if (!online) setOnline(true)
         }
     }
 
@@ -42,6 +43,7 @@ function Login({ isSignedIn, signIn }) {
         <div className='app-child loginConatainer'>
             <form onSubmit={handleSubmit} className='ui form'>
                 <h3 className='page-title'>Login</h3>
+                <p className='page-title-secondary text-center'>Login to start reading and sharing stories</p>
                 <p className='login-error' ref={errorRef}></p>
                 <div className='field loginField'>
                     <input

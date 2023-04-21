@@ -19,6 +19,7 @@ const Header = () => {
                         {!loggedIn && (
                             <Link to="/login" className="ui button primary Btn" >Login</Link>
                         )}
+                        {loggedIn && <Link to="/stories/new" className="item font" >New Story</Link>}
                         <GoogleAuth />
                     </div>
                 </div>

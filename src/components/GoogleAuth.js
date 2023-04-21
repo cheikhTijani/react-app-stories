@@ -1,6 +1,5 @@
 import React from "react";
 import jwt_decode from 'jwt-decode';
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
 
@@ -20,23 +19,21 @@ class GoogleAuth extends React.Component {
     }
 
     handleSignOut = () => {
-        this.setState({ user: {} });
-        document.getElementById('signIn').hidden = false;
         sessionStorage.removeItem("token");
         this.onAuthChange(false);
-        this.initGoogle()
+        this.setState({ user: {} });
+        window.location.reload();
     }
 
     handleCallbackResponse = (response) => {
         const userObject = jwt_decode(response.credential);
         this.setState({ user: userObject });
-        document.getElementById('signIn').hidden = true;
 
         sessionStorage.setItem("token", JSON.stringify(userObject));
         this.onAuthChange(true);
     }
 
-    initGoogle() {
+    componentDidMount() {
         window.google?.accounts.id.initialize({
             client_id: process.env.REACT_APP_google_api_key,
             callback: this.handleCallbackResponse
@@ -47,32 +44,16 @@ class GoogleAuth extends React.Component {
             document.getElementById('signIn'),
             { theme: 'outline', size: 'large' }
         );
-
-        window.google?.accounts.id.prompt();
-    }
-
-    componentDidMount() {
-        this.initGoogle();
-        if (sessionStorage.getItem("token") !== null) {
-            const userObject = JSON.parse(sessionStorage.getItem("token"));
-            this.setState({ user: userObject });
-            document.getElementById('signIn').hidden = true;
-        } else {
-            this.initGoogle();
-        }
     }
 
     render() {
         return (
             <>
-                {Object.keys(this.state.user).length !== 0 &&
-                    (
-                        <Link to="/stories/new" className="item font" >New Story</Link>
-                    )
-                }
                 <div className="item">
-                    <div id="signIn"></div>
-                    {Object.keys(this.state.user).length !== 0 && (
+                    {!this.props.isSignedIn && (
+                        <div id="signIn"></div>
+                    )}
+                    {((Object.keys(this.state.user).length !== 0) || this.props.isSignedIn) && (
                         <div>
                             <i>Signed in as</i>
                             &nbsp; &nbsp;
